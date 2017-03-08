@@ -22,12 +22,15 @@ class ride {
   }
 
   public static int getTotalValueOf(String line) {
-    int totalValue = 0;
+    int totalValue = 1;
 
     for(int i = 0; i < line.length(); i++) { // iterating through each char in the string
       char c = line.charAt(i);
-      totalValue *= (int) c - 64; // adding the ASCII values - 64 (A starts at 65)
+      int asciiValue = (int)c - 64; // converting char to ascii value (subtracting 64 as A starts at 65)
+      totalValue *= asciiValue; // multiplying all ascii values together
     }
+
+    System.out.println(totalValue);
 
     return totalValue;
   }
