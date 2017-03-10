@@ -14,18 +14,12 @@ class gift1 {
 
     StringTokenizer st = new StringTokenizer(f.readLine());
 
-    HashMap gifts = new HashMap();
+    LinkedHashMap gifts = new LinkedHashMap();  // LinkedHashMap to store Key/Value pairs in order
 
-    int numOfNames = Integer.parseInt(st.nextToken());
+    int numOfNames = Integer.parseInt(st.nextToken());  // get number of names
 
-    String[] nameList = new String[numOfNames];
-
-    String name = "";
-
-    for(int i = 0; i < numOfNames; i++) {
-      name = f.readLine();
-      gifts.put(name, 0);
-      nameList[i] = name;
+    for(int i = 0; i < numOfNames; i++) { // iterate through all names and add to LinkedHashMap
+      gifts.put(f.readLine(), 0);
     }
 
     String currentName = "";
@@ -33,27 +27,29 @@ class gift1 {
     int numOfPayees = 0;
     String payeeName = "";
 
-    while((currentName = f.readLine()) != null) {
+    while((currentName = f.readLine()) != null) { // if there is another set of data, set currentName to payer
       st = new StringTokenizer(f.readLine());
 
-      payment = Integer.parseInt(st.nextToken());
+      payment = Integer.parseInt(st.nextToken()); // get payment ammount
   
-      numOfPayees = Integer.parseInt(st.nextToken());
+      numOfPayees = Integer.parseInt(st.nextToken()); // get number of payees
 
-      if(numOfPayees != 0) {
-        payment = payment - (payment%numOfPayees);
+      if(numOfPayees != 0) {  // check for 0 payees
+        payment = payment - (payment%numOfPayees);  // remove the remainder from the payment
 
-        gifts.put(currentName, ((int)gifts.get(currentName) - payment));
+        gifts.put(currentName, ((int)gifts.get(currentName) - payment)); // subtract payment from currentName
 
         for(int i = 0; i < numOfPayees; i++) {
-          payeeName = f.readLine();
-          gifts.put(payeeName, ((int)gifts.get(payeeName) + (payment/numOfPayees)));
+          payeeName = f.readLine(); // iterate through the number of payees and get name
+          gifts.put(payeeName, ((int)gifts.get(payeeName) + (payment/numOfPayees))); // add payment/numOfPayees to payee
         }
       }
     };
 
-    for(String eachName : nameList){
-      out.println(eachName + " " + gifts.get(eachName));
+    Set<String> namesInGifts = gifts.keySet();  // get all Keys from gifts
+
+    for(String name : namesInGifts){
+      out.println(name + " " + gifts.get(name)); // iterate through each name and output to file
     }
 
     out.close();
