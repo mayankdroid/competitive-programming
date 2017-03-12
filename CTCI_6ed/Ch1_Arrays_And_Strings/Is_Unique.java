@@ -9,6 +9,8 @@ import java.util.*;
 class Is_Unique {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+
+		System.out.print("Please enter a string to check for unique characters: "); // Prompt user to enter string
 		String inputString = scan.nextLine();
 
 		boolean isUnique = true;
