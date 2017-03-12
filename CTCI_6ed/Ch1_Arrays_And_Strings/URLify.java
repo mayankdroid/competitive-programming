@@ -35,7 +35,8 @@ class URLify {
 				urlString[currentWriteLocation - 2] = '%';
 				currentWriteLocation -= 3;	// move currentWriteLocation before the start of %20
 			}
-			System.out.println(urlString);
 		}
+
+		System.out.println(urlString);	// output final result
 	}
 }
