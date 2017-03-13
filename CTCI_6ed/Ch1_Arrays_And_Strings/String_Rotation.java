@@ -9,9 +9,9 @@ import java.util.*;
 
 class String_Rotation {
 	public static boolean isSubstring(String s1, String s2) {
-		String doubledString = s1 + s1;
+		String doubledString = s1 + s1;	// concatenate s1 with itself
 
-		return(doubledString.indexOf(s2) != -1);
+		return(doubledString.indexOf(s2) != -1); // attempt to find s2 in the concatenated s1 (doubledString)
 	}
 
 	public static void main(String[] args) {
