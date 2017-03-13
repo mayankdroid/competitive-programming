@@ -25,7 +25,7 @@ class Smallest_Multiple {
 		for(long i = (3*5*7*11*13*17*19*10); i < (12*20*14*16*18*11*13*15*17*19); i+=10) {	// starting from product of primes * 10, and checking all values ending with 0 (divisibility by 10)
 			boolean divisible = true;
 
-			for(int divideValue = 2; divideValue <= 20; divideValue ++) {
+			for(int divideValue = 11; divideValue <= 20; divideValue ++) {	// each value before 10 is divisible if its double is divisible (%7 will work if %14 works)
 				if(i%divideValue != 0) {
 					divisible = false;
 					break;
