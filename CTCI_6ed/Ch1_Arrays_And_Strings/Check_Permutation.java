@@ -20,8 +20,7 @@ class Check_Permutation {
 		if(firstInputString.length() != secondInputString.length()) {	// permutations require the same length
 			isPermutation = false;
 		} else {
-			// create StringBuilder for mutability
-			StringBuilder secondString = new StringBuilder(secondInputString);
+			StringBuilder secondString = new StringBuilder(secondInputString); // create StringBuilder for mutability
 
 			for(int i = 0; i < firstInputString.length(); i++) {
 				int indexOfChar = secondString.indexOf(Character.toString(firstInputString.charAt(i)));	// find index of char in secondString
@@ -38,10 +37,6 @@ class Check_Permutation {
 			}
 		}
 
-		if(isPermutation) {
-			System.out.println("The two strings are a permutation of one another.");
-		} else {
-			System.out.println("The two strings are not a permutation of each other.");
-		}
+		System.out.println("Permutation Check: " + isPermutation);
 	}
 }
