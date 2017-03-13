@@ -14,30 +14,30 @@
  		System.out.println("Please enter a string to check for palindrome permutations: ");
  		String inputString = scan.nextLine();
 
- 		HashMap mapOfLetters = new HashMap(inputString.length());
+ 		HashMap mapOfLetters = new HashMap(inputString.length());	// create hashmap to store all chars
 
  		for(int i = 0; i < inputString.length(); i++) {
- 			char currentLetter = inputString.charAt(i);
- 			if(mapOfLetters.containsKey(currentLetter)) {
+ 			char currentLetter = inputString.charAt(i);	// iterate through each char in string
+ 			if(mapOfLetters.containsKey(currentLetter)) {	// if char is already in hashmap, just add one
  				mapOfLetters.put(currentLetter, (int) mapOfLetters.get(currentLetter) + 1);
  			} else {
- 				mapOfLetters.put(currentLetter, 1);
+ 				mapOfLetters.put(currentLetter, 1);	// otherwise add char to hashmap
  			}
  		}
 
- 		Collection values = mapOfLetters.values();
+ 		Collection values = mapOfLetters.values();	// generate a collection of the values (from Key-Value pair)
 
- 		int numOfOddCharacters = 0;
+ 		int numOfOddCharacters = 0;	// keep a count of the leftover chars
  		
  		for(Object element : values) {
- 			if(Integer.parseInt(element.toString())%2 == 1) {
+ 			if(Integer.parseInt(element.toString())%2 == 1) {	// if odd number of letters, add one to count
  				numOfOddCharacters++;
  			}
  		}
 
- 		if(numOfOddCharacters > 1) {
+ 		if(numOfOddCharacters > 1) {	// if more than one, impossible to create a palindrome
  			System.out.println("False");
- 		} else {
+ 		} else {	// otherwise possible
  			System.out.println("True");
  		}
  	}
