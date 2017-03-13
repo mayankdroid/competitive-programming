@@ -35,10 +35,6 @@
  			}
  		}
 
- 		if(numOfOddCharacters > 1) {	// if more than one, impossible to create a palindrome
- 			System.out.println("False");
- 		} else {	// otherwise possible
- 			System.out.println("True");
- 		}
+ 		System.out.println(numOfOddCharacters < 2); // impossible to create a palindrome if there is more than 1
  	}
  }
