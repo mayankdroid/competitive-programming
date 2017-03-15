@@ -10,14 +10,14 @@ import java.util.*;
 class Summation_Of_Primes {
 	public static void main(String[] args) {
 		long sumOfPrimes = 0L;	// sum of all primes
-		long currentValue = 1;	// current value we're checking for primes
+		double currentValue = 1;	// current value we're checking for primes
 
 		while(currentValue < 2000000) {	// iterate until 2000000
 			boolean isPrime = true;
 
 			currentValue++;
 
-			for(int i = 2; i < currentValue; i++) {	// iterate from 2....currentValue-1
+			for(int i = 2; i < Math.ceil(Math.sqrt(currentValue)); i++) {	// iterate from 2....sqrt(currentValue)
 				if(currentValue%i == 0) {	// if %i == 0; we have another divisor == not prime
 					isPrime = false;
 					break;
