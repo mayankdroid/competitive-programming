@@ -9,14 +9,18 @@ import java.util.*;
 
 class Multiples_of_3_and_5 {
 	public static void main(String[] args) {
-		int sum = 0;
+		int sum = 0;	// variable holding total sum
 
-		for(int i = 0; i < 1000; i++) {
-			if(i%3 == 0 || i%5 == 0) {
-				sum += i;
+		for(int i = 3; i < 1000; i += 3) {	// iterate through each multiple of 3
+			sum += i;	// add multiples to sum
+		}
+
+		for(int i = 5; i < 1000; i += 5) {	// iterate through each multiple of 5
+			if(i % 3 != 0) {	// check if we already added it earlier
+				sum += i;	// add multiples to sum
 			}
 		}
 
-		System.out.println(sum);
+		System.out.println("The sum of all multiples of 3 or 5 below 1000 is: " + sum);
 	}
 }
