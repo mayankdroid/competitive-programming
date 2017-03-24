@@ -11,24 +11,25 @@ import java.util.*;
 
 class Even_Fibonnaci_Numbers {
 	public static void main(String[] args) {
-		long firstNumber = 0;
-		long secondNumber = 1;
-		long currentValue = 0;
+		long firstNumber = 0;	// storing n-2
+		long secondNumber = 1;	// storing n-1
+		long currentValue = 1;	// storing n
 
-		long sum = 0;
+		long sum = 0;	// sum of all even values
 		long end = 4000000;	// end at four million
 
-		while(currentValue < end) {
+		while(currentValue < end) {	// iterate until end
+			// shift all values over one
 			firstNumber = secondNumber;
 			secondNumber = currentValue;
 
-			currentValue = firstNumber + secondNumber;
+			currentValue = firstNumber + secondNumber;	// find new currentValue
 
-			if(currentValue%2 == 0) {
-				sum += currentValue;
+			if(currentValue % 2 == 0) {	// check divisibility
+				sum += currentValue;	// if divisible by 2, add to sum
 			}
 		}
 
-		System.out.println(sum);
+		System.out.println("The sum of all even terms in the fibonacci sequence whose values do not exceed four million is: " + sum);
 	}
 }
