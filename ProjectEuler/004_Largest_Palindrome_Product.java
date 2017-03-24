@@ -8,6 +8,21 @@ import java.io.*;
 import java.util.*;
 
 class Largest_Palindrome_Product {
+	public static boolean isPalindrome(long value) {
+		boolean isPalindrome = true;
+
+		String stringValue = Long.toString(value);	// create a string of the result
+
+		for(int i = 0; i <= stringValue.length()/2; i++) {	// iterate through the first and last number, then go in
+			if(stringValue.charAt(i) != stringValue.charAt(stringValue.length()-i-1)) {	// if the numbers are not the same
+				isPalindrome = false;	// it is not a palindrome
+				break;
+			}
+		}
+
+		return isPalindrome;
+	}
+
 	public static void main(String[] args) {
 		boolean valueFound = false;
 
@@ -18,19 +33,10 @@ class Largest_Palindrome_Product {
 			}
 
 			for(long valueTwo = 999; valueTwo >= 900; valueTwo--) {	// second three digit number
-				String result = Long.toString(valueOne * valueTwo);	// create a string of the result
+				long product = valueOne * valueTwo;
 
-				boolean isPalindrome = true;
-
-				for(int i = 0; i <= result.length()/2; i++) {	// iterate through the first and last number, then go in
-					if(result.charAt(i) != result.charAt(result.length()-i-1)) {	// if the numbers are not the same
-						isPalindrome = false;	// it is not a palindrome
-						break;
-					}
-				}
-
-				if(isPalindrome) {	// if we find the palindrome, print out the result and return
-					System.out.println("The largest palindrome created from the product of two three digit numbers is: " + result);
+				if(isPalindrome(product)) {	// if we find the palindrome, print out the result and return
+					System.out.println("The largest palindrome created from the product of two three digit numbers is: " + product);
 					valueFound = true;
 					break;
 				}
